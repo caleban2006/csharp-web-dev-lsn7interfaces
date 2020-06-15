@@ -11,13 +11,41 @@ namespace IceCreamShop
             List<Flavor> availableFlavors = menu.Flavors;
             List<Cone> availableCones = menu.Cones;
 
-        // TODO: Use a Comparer class to sort the 'flavors' array alphabetically by the 'name'
-        //  field.
+            // TODO: Use a Comparer class to sort the 'flavors' array alphabetically by the 'name'
+            //  field.
 
-        // TODO: Use a Comparator class to sort the 'cones' array in increasing order by the 'cost'
-        //  field.
+            FlavorComparer comparer = new FlavorComparer();
 
-        // TODO: Print the 'flavors' and 'cones' lists (in a clear manner) to verify the sorting.
+            foreach (IceCreamShop.Flavor flavor in availableFlavors)
+            {
+                Console.WriteLine(flavor.Name);
+            }
+
+            availableFlavors.Sort(comparer);
+
+            foreach (IceCreamShop.Flavor flavor in availableFlavors)
+            {
+                Console.WriteLine(flavor.Name);
+            }
+
+            // TODO: Use a Comparator class to sort the 'cones' array in increasing order by the 'cost'
+            //  field.
+
+            ConeComparer comparerCone = new ConeComparer();
+
+            foreach (IceCreamShop.Cone cone in availableCones)
+            {
+                Console.WriteLine($"{cone.Name}: {cone.Cost}");
+            }
+
+            availableCones.Sort(comparerCone);
+
+            foreach (IceCreamShop.Cone cone in availableCones)
+            {
+                Console.WriteLine($"{cone.Name}: {cone.Cost}");
+            }
+
+            // TODO: Print the 'flavors' and 'cones' lists (in a clear manner) to verify the sorting.
         }
     }
 }
